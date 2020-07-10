@@ -1,2 +1,2 @@
-# EccentricBillionairesDotCom
-Github Page to host EccentricBillionaires.com
+# EfficiencyJunky.com
+Github Page to host EfficiencyJunky.com
