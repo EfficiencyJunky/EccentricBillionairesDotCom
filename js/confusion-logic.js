@@ -5,16 +5,29 @@ let winWidth = window.innerWidth;
 
 let button = document.getElementById("stop-start");
 button.onclick = _toggleTimer;
+window.onresize = updateWindowSizeVars;
 
-const _scaleFactor = 0.2;
+const _heightScaleFactor = 0.5;
+const _heightOffset = 0.25;
+const _widthScaleFactor = 0.25;
 const _timerInterval = 250;
 let _timerID = undefined;
 
 
+function updateWindowSizeVars() {
+    
+    winHeight = window.innerHeight;
+    winWidth = window.innerWidth;
+
+    // console.log("height", winHeight);
+}
+  
+
+
 
 function _timerCallback(){
-    const offsetTop = Math.round(winHeight * (_scaleFactor * Math.random()));
-    const offsetWidth = Math.round(winWidth * (_scaleFactor * Math.random()));
+    const offsetTop = Math.round(winHeight * (_heightScaleFactor * Math.random()) + (_heightOffset * winHeight) );
+    const offsetWidth = Math.round(winWidth * (_widthScaleFactor * Math.random()));
 
     // sliderParent.setAttribute("style", `top:${offsetTop}`);
     // sliderParent.setAttribute("style", `right:${offsetWidth}`);
@@ -39,6 +52,8 @@ function _toggleTimer(event){
         event.target.innerHTML = "need confusion?";
     }
     else{
+        winHeight = window.innerHeight;
+        winWidth = window.innerWidth;        
         _timerStart();
         event.target.innerHTML = "need calm?";
     }

@@ -6,6 +6,17 @@ html, body{
 }
 
 
+#slider-parent{
+    position: relative;
+    /* display:flex; */    
+    margin-top: -1rem; /* margin is half the height of the slider */
+    top: 50%;
+    width:75%;
+    left: 12.5%;
+    /* background-color: black; */
+}
+
+
 #slider {
     -webkit-appearance: none;
     position: relative;
@@ -14,17 +25,16 @@ html, body{
     background: #ffffff;
     /* line-height: 100%; */
     width:100%;
-    height: 2rem;
-
-    vertical-align: middle;
-    margin-left: 5px;
+    /* vertical-align: middle; */
+    /* margin-left: 5px; */
     /* height: 1rem; height of the bar the "thumb" slides on */
+    height: 2rem;
     border-radius: 7px;
     background: #ffffff;
     /* outline: none; */
     opacity: 0.90;
-    -webkit-transition: .2s;
-    transition: opacity .2s;    
+    /* -webkit-transition: .2s;
+    transition: opacity .2s;     */
 
 }
 
@@ -49,18 +59,10 @@ html, body{
 
 
 
-#slider-parent{
-    position: relative;
-    /* display:flex; */
-    top: 10%;
-    width:75%;
-    margin-top: -2rem;
+.linkDiv {
+    margin: 20px;
     /* background-color: black; */
 }
-
-
-
-
 
 a {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -79,7 +81,3 @@ a {
 
 
 
-.linkDiv {
-    margin: 20px;
-    /* background-color: black; */
-}
