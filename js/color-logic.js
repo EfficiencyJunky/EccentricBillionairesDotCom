@@ -6,31 +6,41 @@ let documentBody = document.querySelector("body");
 let analyticsElem = document.getElementById("analytics");
 let bikelapseElem = document.getElementById("bikelapse");
 let silverspoon360Elem = document.getElementById("silverspoon360");
+let webmidiaudiosyncElem = document.getElementById("webmidiaudiosync");
 
 const defaultLumVal = 50;
-
+const numberOfLinks = 4
+const reavealSpan = 360/numberOfLinks;
 
 // THESE ARE THE DROIDS YOU ARE LOOKING FOR
 let bikelapseObj = {
     "element": bikelapseElem,
     "lum": defaultLumVal,
     "lowVal": 0,
-    "highVal": 360/3
+    "highVal": reavealSpan * 1
 }
 
 let analyticsObj = {
     "element": analyticsElem,
     "lum": defaultLumVal,
-    "lowVal": 360/3,
-    "highVal": 360/2
+    "lowVal": reavealSpan * 1,
+    "highVal": reavealSpan * 2
 }
 
 let silverspoon360Obj = {
     "element": silverspoon360Elem,
     "lum": defaultLumVal,
-    "lowVal": 360/2,
-    "highVal": 360
+    "lowVal": reavealSpan * 2,
+    "highVal": reavealSpan * 3
 }
+
+let webmidiaudiosyncObj = {
+    "element": webmidiaudiosyncElem,
+    "lum": defaultLumVal,
+    "lowVal": reavealSpan * 3,
+    "highVal": reavealSpan * 4
+}
+
 
 // ********* THIS IS THE BACKGROUND ********* 
 let documentBodyObj = {
@@ -46,7 +56,7 @@ let sliderParentObj = {
     "lum": defaultLumVal
 }
 
-let elementObjs = [ documentBodyObj, analyticsObj, bikelapseObj, silverspoon360Obj];
+let elementObjs = [ documentBodyObj, analyticsObj, bikelapseObj, silverspoon360Obj, webmidiaudiosyncObj];
 
 
 
