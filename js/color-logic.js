@@ -15,21 +15,21 @@ let bikelapseObj = {
     "element": bikelapseElem,
     "lum": defaultLumVal,
     "lowVal": 0,
-    "highVal": 40
+    "highVal": 360/3
 }
 
 let analyticsObj = {
     "element": analyticsElem,
     "lum": defaultLumVal,
-    "lowVal": 40,
-    "highVal": 80
+    "lowVal": 360/3,
+    "highVal": 360/2
 }
 
 let silverspoon360Obj = {
     "element": silverspoon360Elem,
     "lum": defaultLumVal,
-    "lowVal": 80,
-    "highVal": 120
+    "lowVal": 360/2,
+    "highVal": 360
 }
 
 // ********* THIS IS THE BACKGROUND ********* 
