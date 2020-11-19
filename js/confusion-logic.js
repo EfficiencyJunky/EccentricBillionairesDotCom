@@ -13,21 +13,29 @@ const _widthScaleFactor = 0.25;
 const _timerInterval = 250;
 let _timerID = undefined;
 
+let randomOffsetTopScalar = 0.5;
+let randomOffsetWidthScalar = 0.5;
 
 function updateWindowSizeVars() {
     
     winHeight = window.innerHeight;
     winWidth = window.innerWidth;
-
+    _timerCallback(false)
     // console.log("height", winHeight);
 }
   
 
 
 
-function _timerCallback(){
-    const offsetTop = Math.round(winHeight * (_heightScaleFactor * Math.random()) + (_heightOffset * winHeight) );
-    const offsetWidth = Math.round(winWidth * (_widthScaleFactor * Math.random()));
+function _timerCallback(resetRandomScalars = true){
+    
+    if(resetRandomScalars){
+        randomOffsetTopScalar = Math.random();
+        randomOffsetWidthScalar = Math.random();
+    }
+
+    const offsetTop = Math.round(winHeight * (_heightScaleFactor * randomOffsetTopScalar) + (_heightOffset * winHeight) );
+    const offsetWidth = Math.round(winWidth * (_widthScaleFactor * randomOffsetWidthScalar));
 
     // sliderParent.setAttribute("style", `top:${offsetTop}`);
     // sliderParent.setAttribute("style", `right:${offsetWidth}`);
