@@ -3,46 +3,14 @@ slider.oninput = _sliderOnInput;
 
 let sliderParent = document.getElementById("slider-parent");
 let documentBody = document.querySelector("body");
-let analyticsElem = document.getElementById("analytics");
-let bikelapseElem = document.getElementById("bikelapse");
-let silverspoon360Elem = document.getElementById("silverspoon360");
-let webmidiaudiosyncElem = document.getElementById("webmidiaudiosync");
+let linkDivs = document.querySelectorAll(".linkDiv");
 
+let elementObjs = [];
 const defaultLumVal = 50;
-const numberOfLinks = 4
+const numberOfLinks = linkDivs.length;
 const reavealSpan = 360/numberOfLinks;
 
-// THESE ARE THE DROIDS YOU ARE LOOKING FOR
-let bikelapseObj = {
-    "element": bikelapseElem,
-    "lum": defaultLumVal,
-    "lowVal": 0,
-    "highVal": reavealSpan * 1
-}
-
-let analyticsObj = {
-    "element": analyticsElem,
-    "lum": defaultLumVal,
-    "lowVal": reavealSpan * 1,
-    "highVal": reavealSpan * 2
-}
-
-let silverspoon360Obj = {
-    "element": silverspoon360Elem,
-    "lum": defaultLumVal,
-    "lowVal": reavealSpan * 2,
-    "highVal": reavealSpan * 3
-}
-
-let webmidiaudiosyncObj = {
-    "element": webmidiaudiosyncElem,
-    "lum": defaultLumVal,
-    "lowVal": reavealSpan * 3,
-    "highVal": reavealSpan * 4
-}
-
-
-// ********* THIS IS THE BACKGROUND ********* 
+// ********* THIS IS THE BACKGROUND *********
 let documentBodyObj = {
     "element": documentBody,
     "lum": defaultLumVal
@@ -50,13 +18,27 @@ let documentBodyObj = {
     // "highVal": 80
 }
 
-// THIS IS THE SLIDER'S PARENT DIV
-let sliderParentObj = {
-    "element": sliderParent,
-    "lum": defaultLumVal
-}
+// Add the BodyObj to the list we will update with the slider's color
+elementObjs.push(documentBodyObj);
 
-let elementObjs = [ documentBodyObj, analyticsObj, bikelapseObj, silverspoon360Obj, webmidiaudiosyncObj];
+// ********* CREATE LINKDIV OBJECTS AND ADD TO THE LIST WE WILL UPDATED FROM THE SLIDER *********
+// here we iterate through all the linkDivs in the HTML
+// for each one we create an object with a reference to the "a" element,
+// the defaultLumVal, and the low/high Values for revealing the linkDiv
+// everytime we add a new linkDiv, the distance along the slider that is
+// dedicated to revealing each linkDiv will get smaller
+linkDivs.forEach( (linkDiv, i) => {
+    let linkDivObj = {
+        "element": linkDiv.querySelector("a"),
+        "lum": defaultLumVal,
+        "lowVal": reavealSpan * i,
+        "highVal": reavealSpan * (i+1)
+    }
+
+    elementObjs.push(linkDivObj);
+
+});
+
 
 
 
@@ -69,7 +51,6 @@ function _sliderOnInput(event){
     // loop through all the elements and set their color
     elementObjs.forEach((elementObj) => {
         _setElementColorFromSliderVal(sliderVal, elementObj);
-
     });
 
 }

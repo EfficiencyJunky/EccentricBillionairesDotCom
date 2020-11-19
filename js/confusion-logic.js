@@ -16,6 +16,7 @@ let _timerID = undefined;
 let randomOffsetTopScalar = 0.5;
 let randomOffsetWidthScalar = 0.5;
 
+
 function updateWindowSizeVars() {
     
     winHeight = window.innerHeight;

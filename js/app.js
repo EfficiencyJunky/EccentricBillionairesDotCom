@@ -8,8 +8,7 @@ _sliderOnInput({
     }
 });
 
-// override the luminance of the background for whichever object is "visible" at the initial slider value
-
+// override the luminance of the background for whichever object should be "visible" at the initial slider value
 elementObjs.forEach((elemObj) => {
 
     if( typeof(elemObj.highVal) !== "undefined" 
